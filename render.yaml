@@ -1,0 +1,17 @@
+# render.yaml
+
+services:
+  - type: web
+    name: sistema-avaliacao-java
+    env: java
+    plan: free
+    buildCommand: "./gradlew build"
+    startCommand: "java -jar build/libs/sistema-avaliacao-java.jar"
+    autoDeploy: true
+    github:
+      owner: "miguelnandisouza-creator"
+      repo: "sistema-avaliacao-java" 
+      pullRequest: true
+    envVars:
+      - key: "JAVA_OPTS"
+        value: "-Xmx512m"
